@@ -36,7 +36,7 @@ export default function SignupForm(props) {
       console.log(formValues);
       toast("success", "Data berhasil disimpan");
     }
-  }, [formErrors]);
+  }, [formErrors, formValues, isSubmit, toast]);
 
   const validate = (values) => {
     const errors = {};
@@ -66,11 +66,6 @@ export default function SignupForm(props) {
 
   return (
     <>
-      <pre className="absolute top-4 right-4">
-        {JSON.stringify(formValues, undefined, 2)}
-        {JSON.stringify(isSubmit, undefined, 2)}
-        {JSON.stringify(formValues.name.test, undefined, 2)}
-      </pre>
       <form
         onSubmit={handleOnSubmit}
         className=" flex relative flex-col w-full md:w-[391px] md:min-w-[391px] md:p-6 md:rounded-2xl md:bg-white md:drop-shadow"

@@ -8,7 +8,9 @@ export default function BannerCard(props) {
     <div className="w-full h-72 md:w-1/2 md:max-w-[483px] md:mt-9 mb-6 bg-white border border-acmeprimary rounded-xl overflow-hidden text-acmeprimary">
       <div className="bg-flower-banner w-full h-1/2 bg-cover"></div>
       <div className="p-4 flex flex-col">
-        <Tag bgColor="bg-acmeprimary" textColor="text-white">Penting</Tag>
+        <Tag bgColor="bg-acmeprimary" textColor="text-white">
+          Penting
+        </Tag>
         <div className="font-bold mt-3 mb-2">{props.title}</div>
         <div>
           <span>mulai dari </span>

@@ -1,8 +1,6 @@
 import React from "react";
 import { useToastDispatchContext } from "../../Context/ToastContext";
 
-
-
 export default function Toast({ type, message, id }) {
   const dispatch = useToastDispatchContext();
   return (
