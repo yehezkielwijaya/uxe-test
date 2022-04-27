@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const BaseInput = ({
   value,
@@ -13,6 +13,18 @@ const BaseInput = ({
 }) => {
   const valueLength = value.length;
 
+  const [callcode, setCallcode] = useState([]);
+
+  useEffect(() => {
+    getCallcode();
+  }, []);
+
+  const getCallcode = async () => {
+    const res = await fetch("https://restcountries.com/v2/all/");
+    const data = await res.json();
+    await setCallcode(data);
+  };
+
   return (
     <>
       {type === "tel" ? (
@@ -21,10 +33,12 @@ const BaseInput = ({
             <div className="font-medium text-acmeprimary">{label}</div>
           </div>
           <div className="border overflow-hidden border-acmeprimary shadow-lg rounded-xl w-full flex bg-white">
-            <select className="p-4 border-none focus:border-none focus:ring-0 focus:outline-none ">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
+            <select className="p-4 w-16 overflow-scroll border-none focus:border-none focus:ring-0 focus:outline-none">
+              {callcode.map((country, index) => (
+                <option value={country.capital} key={index}>
+                  {country.capital}
+                </option>
+              ))}
             </select>
             <input
               className="p-4 w-full border-none focus:border-none focus:ring-0 focus:outline-none"
