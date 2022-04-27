@@ -32,13 +32,14 @@ const BaseInput = ({
             <div className="font-medium text-acmeprimary">{label}</div>
           </div>
           <div className="border overflow-hidden border-acmeprimary shadow-lg rounded-xl w-full flex bg-white">
-            <select className="p-4 w-16 overflow-scroll border-none focus:border-none focus:ring-0 focus:outline-none">
+            <select className="p-4 w-24 overflow-hidden border-none focus:border-none focus:ring-0 focus:outline-none">
               {callcode.map((country, index) => (
-                <option value={country.capital} key={index}>
-                  {country.capital}
+                <option className="inline-block" value={country.callingCodes} key={index}>
+                  +{country.callingCodes} {country.name}
                 </option>
               ))}
             </select>
+            <i className="border h-2/3 my-auto"></i>
             <input
               className="p-4 w-full border-none focus:border-none focus:ring-0 focus:outline-none"
               type={type}
