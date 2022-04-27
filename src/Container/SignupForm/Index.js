@@ -64,6 +64,13 @@ export default function SignupForm(props) {
     return errors;
   };
 
+  function toTitleCase(str) {
+    return str.toLocaleLowerCase().replace(
+      /(^|\w)\S*/g,
+      (txt) => txt.charAt(0).toLocaleUpperCase() + txt.substring(1),
+    )
+  }
+
   return (
     <>
       <form
@@ -71,7 +78,7 @@ export default function SignupForm(props) {
         className=" flex relative flex-col w-full md:w-[391px] md:min-w-[391px] md:p-6 md:rounded-2xl md:bg-white md:drop-shadow"
       >
         <BaseInput
-          value={formValues.name}
+          value={toTitleCase(formValues.name)}
           onChange={handleOnChange}
           type="text"
           name="name"
