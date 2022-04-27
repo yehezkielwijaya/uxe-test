@@ -43,13 +43,17 @@ export default function SignupForm(props) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
     if (!values.name) {
       errors.name = "Nama lengkap tidak boleh kosong";
-    } else if (values.name < values.minLength) {
-      errors.name = "Nama lengkap harus lebih dari 3 karakter";
+    } else if (values.name.length < 3) {
+      errors.name = "Nama terlalu pendek";
+    } else if (values.name.length > 40) {
+      errors.name = "Nama terlalu panjang";
     }
     if (!values.phone) {
       errors.phone = "Nomor telepon tidak boleh kosong";
-    } else if(isNaN(values.phone)) {
-      errors.phone = "Nomor telepon hanya boleh berupa angka"
+    } else if (isNaN(values.phone)) {
+      errors.phone = "Nomor telepon hanya boleh berupa angka";
+    } else if (values.phone.length > 16) {
+      errors.name = "Nomor telepon tidak valid";
     }
     if (!values.password) {
       errors.password = "Kata Sandi tidak boleh kosong";
@@ -62,10 +66,11 @@ export default function SignupForm(props) {
 
   return (
     <>
-      {/* <pre className="absolute top-4 right-4">
+      <pre className="absolute top-4 right-4">
         {JSON.stringify(formValues, undefined, 2)}
         {JSON.stringify(isSubmit, undefined, 2)}
-      </pre> */}
+        {JSON.stringify(formValues.name.test, undefined, 2)}
+      </pre>
       <form
         onSubmit={handleOnSubmit}
         className=" flex relative flex-col w-full md:w-[391px] md:min-w-[391px] md:p-6 md:rounded-2xl md:bg-white md:drop-shadow"
