@@ -4,7 +4,7 @@ import instagramIcon from "../../Assets/icons/Instagram Icon.svg";
 
 export default function BannerCard(props) {
   return (
-    <div className="w-full h-72 md:w-1/2 md:my-auto mb-6 bg-white border border-acmeprimary rounded-xl overflow-hidden text-acmeprimary">
+    <div className="w-full h-72 md:w-1/2 md:max-w-[483px] md:mt-9 mb-6 bg-white border border-acmeprimary rounded-xl overflow-hidden text-acmeprimary">
       <div className="bg-flower-banner w-full h-1/2 bg-cover"></div>
       <div className="p-4 flex flex-col">
         <div className="flex justify-center items-center rounded-2xl h-4 bg-acmeprimary text-white uppercase tracking-[2px] px-2 w-fit text-[9px] font-bold">

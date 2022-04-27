@@ -13,6 +13,7 @@ module.exports = {
       width: {
         iphone11pro: '375px',
         desktop: "1024px",
+        toast: "343px"
       },
     },
   },
